@@ -13,5 +13,8 @@ class SNNewsItemCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
+ 
+    func configureForNewsItem(newsItem: SNNewsItem) {
+        
+    }
 }
