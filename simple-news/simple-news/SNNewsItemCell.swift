@@ -1,0 +1,17 @@
+//
+//  SNNewsItemCell.swift
+//  simple-news
+//
+//  Created by Aleksandr Ivashchenko on 4/22/16.
+//  Copyright © 2016 Aleksandr Ivashchenko. All rights reserved.
+//
+
+import UIKit
+
+class SNNewsItemCell: UITableViewCell {
+
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+}
