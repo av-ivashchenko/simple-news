@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let SNManagedObjectContextSaveDidFailNotification = "SNManagedObjectContextSaveDidFailNotification"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
+        print("*** \(documentsDirectory)")
+        
+        let navigationController = window!.rootViewController as! UINavigationController
+        let newsViewController = navigationController.viewControllers[0] as! SNNewsViewController
+        newsViewController.managedObjectContext = managedObjectContext
+        
         return true
     }
 
@@ -54,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("simple_news", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("SNNewsItem", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 
@@ -62,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("DataStore.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
