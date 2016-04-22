@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89BAFC281CCA180D00F3D205 /* SNNewsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BAFC271CCA180D00F3D205 /* SNNewsItemCell.swift */; };
+		89DE524E1CCA1CC0008634D8 /* SNNetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE524D1CCA1CC0008634D8 /* SNNetworkAPI.swift */; };
+		89DE52501CCA1CE6008634D8 /* SNNewsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */; };
+		89DE52531CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE52511CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift */; };
+		89DE52541CCA2072008634D8 /* SNNewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE52521CCA2072008634D8 /* SNNewsItem.swift */; };
 		89FE1B381CCA03EC00155354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B371CCA03EC00155354 /* AppDelegate.swift */; };
 		89FE1B3D1CCA03EC00155354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FE1B3B1CCA03EC00155354 /* Main.storyboard */; };
-		89FE1B401CCA03EC00155354 /* simple_news.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B3E1CCA03EC00155354 /* simple_news.xcdatamodeld */; };
+		89FE1B401CCA03EC00155354 /* SNNewsItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B3E1CCA03EC00155354 /* SNNewsItem.xcdatamodeld */; };
 		89FE1B421CCA03EC00155354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FE1B411CCA03EC00155354 /* Assets.xcassets */; };
 		89FE1B561CCA13A100155354 /* SNNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B551CCA13A100155354 /* SNNewsViewController.swift */; };
 		89FE1B581CCA13BC00155354 /* SNNewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B571CCA13BC00155354 /* SNNewsDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		89BAFC271CCA180D00F3D205 /* SNNewsItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SNNewsItemCell.swift; sourceTree = "<group>"; };
+		89DE524D1CCA1CC0008634D8 /* SNNetworkAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNNetworkAPI.swift; path = Model/SNNetworkAPI.swift; sourceTree = "<group>"; };
+		89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNNewsItemCell.swift; path = View/SNNewsItemCell.swift; sourceTree = "<group>"; };
+		89DE52511CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SNNewsItem+CoreDataProperties.swift"; path = "Model/SNNewsItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89DE52521CCA2072008634D8 /* SNNewsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNNewsItem.swift; path = Model/SNNewsItem.swift; sourceTree = "<group>"; };
 		89FE1B341CCA03EC00155354 /* simple-news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-news.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89FE1B371CCA03EC00155354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89FE1B3C1CCA03EC00155354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		89FE1B3F1CCA03EC00155354 /* simple_news.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simple_news.xcdatamodel; sourceTree = "<group>"; };
+		89FE1B3F1CCA03EC00155354 /* SNNewsItem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SNNewsItem.xcdatamodel; sourceTree = "<group>"; };
 		89FE1B411CCA03EC00155354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89FE1B461CCA03EC00155354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89FE1B551CCA13A100155354 /* SNNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNNewsViewController.swift; path = Controller/SNNewsViewController.swift; sourceTree = "<group>"; };
@@ -88,8 +94,8 @@
 		89FE1B4E1CCA12FD00155354 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */,
 				89FE1B3B1CCA03EC00155354 /* Main.storyboard */,
-				89BAFC271CCA180D00F3D205 /* SNNewsItemCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -106,7 +112,9 @@
 		89FE1B501CCA131A00155354 /* News Item */ = {
 			isa = PBXGroup;
 			children = (
-				89FE1B3E1CCA03EC00155354 /* simple_news.xcdatamodeld */,
+				89DE52511CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift */,
+				89DE52521CCA2072008634D8 /* SNNewsItem.swift */,
+				89FE1B3E1CCA03EC00155354 /* SNNewsItem.xcdatamodeld */,
 			);
 			name = "News Item";
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 		89FE1B511CCA132F00155354 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				89DE524D1CCA1CC0008634D8 /* SNNetworkAPI.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -205,10 +214,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89DE52541CCA2072008634D8 /* SNNewsItem.swift in Sources */,
+				89DE52531CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift in Sources */,
 				89FE1B561CCA13A100155354 /* SNNewsViewController.swift in Sources */,
-				89BAFC281CCA180D00F3D205 /* SNNewsItemCell.swift in Sources */,
-				89FE1B401CCA03EC00155354 /* simple_news.xcdatamodeld in Sources */,
+				89FE1B401CCA03EC00155354 /* SNNewsItem.xcdatamodeld in Sources */,
 				89FE1B581CCA13BC00155354 /* SNNewsDetailViewController.swift in Sources */,
+				89DE524E1CCA1CC0008634D8 /* SNNetworkAPI.swift in Sources */,
+				89DE52501CCA1CE6008634D8 /* SNNewsItemCell.swift in Sources */,
 				89FE1B381CCA03EC00155354 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,13 +368,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		89FE1B3E1CCA03EC00155354 /* simple_news.xcdatamodeld */ = {
+		89FE1B3E1CCA03EC00155354 /* SNNewsItem.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				89FE1B3F1CCA03EC00155354 /* simple_news.xcdatamodel */,
+				89FE1B3F1CCA03EC00155354 /* SNNewsItem.xcdatamodel */,
 			);
-			currentVersion = 89FE1B3F1CCA03EC00155354 /* simple_news.xcdatamodel */;
-			path = simple_news.xcdatamodeld;
+			currentVersion = 89FE1B3F1CCA03EC00155354 /* SNNewsItem.xcdatamodel */;
+			path = SNNewsItem.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
