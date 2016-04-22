@@ -22,10 +22,6 @@ class SNLocalDatabaseManager {
         for dict in data {
             let itemDate = NSDate.dateFromString(dict["pubDate"]!)
             
-            if let photoID = dict["photoID"] {
-                let f = NSNumberFormatter()
-                f.numberStyle = .DecimalStyle;
-                newsItem.photoID = f.numberFromString(photoID)
             if let currNewsItem = currNewsItem where itemDate.compare(currNewsItem.pubDate) == .OrderedDescending {
                 print("*** Just got fresh news item!")
                 saveNewsItemDict(dict, pubDate: itemDate, completion: completion)
@@ -33,8 +29,6 @@ class SNLocalDatabaseManager {
                 print("*** Empty local database")
                 saveNewsItemDict(dict, pubDate: itemDate, completion: completion)
             } else {
-                newsItem.photoID = nil
-            }
                 break
             }
         }

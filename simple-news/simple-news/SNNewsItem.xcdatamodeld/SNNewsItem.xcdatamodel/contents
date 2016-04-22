@@ -3,11 +3,10 @@
     <entity name="SNNewsItem" representedClassName=".SNNewsItem" syncable="YES">
         <attribute name="itemDescription" attributeType="String" syncable="YES"/>
         <attribute name="link" attributeType="String" syncable="YES"/>
-        <attribute name="photoID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="pubDate" attributeType="Date" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SNNewsItem" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="SNNewsItem" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>

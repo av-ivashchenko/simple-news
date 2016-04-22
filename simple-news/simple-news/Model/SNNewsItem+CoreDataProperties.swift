@@ -18,6 +18,5 @@ extension SNNewsItem {
     @NSManaged var link: String
     @NSManaged var pubDate: NSDate
     @NSManaged var itemDescription: String
-    @NSManaged var photoID: NSNumber?
 
 }

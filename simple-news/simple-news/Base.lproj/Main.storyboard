@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Apple Developer News-->
         <scene sceneID="fOp-Z1-IBi">
             <objects>
                 <tableViewController id="94K-ee-rbg" customClass="SNNewsViewController" customModule="simple_news" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,13 +74,16 @@
                             <outlet property="delegate" destination="94K-ee-rbg" id="Drs-eH-gD7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="hTf-bO-zPr">
+                    <navigationItem key="navigationItem" title="Apple Developer News" id="hTf-bO-zPr">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="DT3-da-y4M">
                             <connections>
                                 <action selector="refreshButtonTapped:" destination="94K-ee-rbg" id="MTo-pU-2pT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="refreshBarButtonItem" destination="DT3-da-y4M" id="OS9-XE-Pjw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq1-P7-8Ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
