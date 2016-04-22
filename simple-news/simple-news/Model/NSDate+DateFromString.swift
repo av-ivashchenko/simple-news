@@ -10,6 +10,9 @@ import Foundation
 
 extension NSDate {
     class func dateFromString(string: String) -> NSDate {
-        return NSDate()
+        let formatter = NSDateFormatter()
+        formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        formatter.dateFormat = "EEE,dd MMM yyyy HH:mm:ss zzz"
+        return formatter.dateFromString(string)!
     }
 }

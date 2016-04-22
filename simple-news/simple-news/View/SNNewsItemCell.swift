@@ -17,5 +17,11 @@ class SNNewsItemCell: UITableViewCell {
     func configureForNewsItem(newsItem: SNNewsItem) {
         nameLabel.text = newsItem.title
         detailLabel.text = newsItem.itemDescription
+        
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .LongStyle
+        formatter.dateStyle = .LongStyle
+        
+        dateLabel.text = formatter.stringFromDate(newsItem.pubDate)
     }
 }

@@ -20,13 +20,13 @@ class SNNewsViewController: UITableViewController {
         
         let entity = NSEntityDescription.entityForName("SNNewsItem", inManagedObjectContext: self.managedObjectContext)
         fetchRequest.entity = entity
-        let sortDescriptor = NSSortDescriptor(key: "pubDate", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "pubDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: self.managedObjectContext,
-                                                                  sectionNameKeyPath: nil,
+                                                                  sectionNameKeyPath: "pubDate",
                                                                   cacheName: "NewsItems")
         fetchedResultsController.delegate = self
         
@@ -117,6 +117,19 @@ class SNNewsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 146
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let sectionInfo = fetchedResultsController.sections![section].name
+        
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZ"
+        let date = formatter.dateFromString(sectionInfo)
+        
+        formatter.timeStyle = .NoStyle
+        formatter.dateStyle = .MediumStyle
+        
+        return formatter.stringFromDate(date!)
     }
 }
 

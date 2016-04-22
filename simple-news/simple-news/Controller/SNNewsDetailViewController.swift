@@ -12,8 +12,8 @@ class SNNewsDetailViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var itemDescription: UITextView!
     @IBOutlet weak var newsImageView: UIImageView!
-    @IBOutlet weak var newsDescriptionLabel: UILabel!
     
     var newsItem: SNNewsItem? {
         didSet {
@@ -30,6 +30,18 @@ class SNNewsDetailViewController: UIViewController {
         super.viewDidLoad()
         
         nameLabel.text = newsItem!.title
-        newsDescriptionLabel.text = newsItem?.itemDescription
+        itemDescription.text = newsItem!.itemDescription + "\n" + newsItem!.link
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .LongStyle
+        formatter.timeStyle = .LongStyle
+        
+        dateLabel.text = formatter.stringFromDate(newsItem!.pubDate)
+    }
+}
+
+extension SNNewsDetailViewController: UITextViewDelegate {
+    func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
+        return true
     }
 }
