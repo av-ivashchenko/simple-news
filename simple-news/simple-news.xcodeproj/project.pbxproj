@@ -11,6 +11,7 @@
 		893EDFCB1CCA41D2002D25A5 /* SNFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */; };
 		893EDFCF1CCA4945002D25A5 /* SNLocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFCE1CCA4945002D25A5 /* SNLocalDatabaseManager.swift */; };
 		893EDFD11CCA4CFF002D25A5 /* NSDate+DateFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFD01CCA4CFF002D25A5 /* NSDate+DateFromString.swift */; };
+		89C194171CCAD8E0002E99C4 /* SNReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C194161CCAD8E0002E99C4 /* SNReachability.swift */; };
 		89DE524E1CCA1CC0008634D8 /* SNDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE524D1CCA1CC0008634D8 /* SNDataManager.swift */; };
 		89DE52501CCA1CE6008634D8 /* SNNewsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */; };
 		89DE52531CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE52511CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift */; };
@@ -28,6 +29,7 @@
 		893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNFunctions.swift; path = Model/SNFunctions.swift; sourceTree = "<group>"; };
 		893EDFCE1CCA4945002D25A5 /* SNLocalDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNLocalDatabaseManager.swift; path = Model/SNLocalDatabaseManager.swift; sourceTree = "<group>"; };
 		893EDFD01CCA4CFF002D25A5 /* NSDate+DateFromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+DateFromString.swift"; path = "Model/NSDate+DateFromString.swift"; sourceTree = "<group>"; };
+		89C194161CCAD8E0002E99C4 /* SNReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNReachability.swift; path = Model/SNReachability.swift; sourceTree = "<group>"; };
 		89DE524D1CCA1CC0008634D8 /* SNDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNDataManager.swift; path = Model/SNDataManager.swift; sourceTree = "<group>"; };
 		89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNNewsItemCell.swift; path = View/SNNewsItemCell.swift; sourceTree = "<group>"; };
 		89DE52511CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SNNewsItem+CoreDataProperties.swift"; path = "Model/SNNewsItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */,
 				893EDFD01CCA4CFF002D25A5 /* NSDate+DateFromString.swift */,
+				89C194161CCAD8E0002E99C4 /* SNReachability.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				89FE1B581CCA13BC00155354 /* SNNewsDetailViewController.swift in Sources */,
 				893EDFCF1CCA4945002D25A5 /* SNLocalDatabaseManager.swift in Sources */,
 				89DE524E1CCA1CC0008634D8 /* SNDataManager.swift in Sources */,
+				89C194171CCAD8E0002E99C4 /* SNReachability.swift in Sources */,
 				89DE52501CCA1CE6008634D8 /* SNNewsItemCell.swift in Sources */,
 				893EDFCB1CCA41D2002D25A5 /* SNFunctions.swift in Sources */,
 				89FE1B381CCA03EC00155354 /* AppDelegate.swift in Sources */,

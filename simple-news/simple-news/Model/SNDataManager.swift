@@ -37,7 +37,12 @@ class SNDataManager: NSObject {
         
         let url = NSURL(string: "https://developer.apple.com/news/rss/news.rss")!
         parser.delegate = self
-        parser.parseDataFromURL(url)
+        
+        if Reachability.isConnectedToNetwork() {
+            parser.parseDataFromURL(url)
+        } else {
+            self.delegate!.dataDownloadDidFailedWithError("Network Error. Your Internet connection failed during the download. Please try again.")
+        }
     }
 }
 
@@ -48,13 +53,13 @@ extension SNDataManager: SNXMLParserDelegate {
             if success {
                 self.delegate!.dataDidEndDownload()
             } else {
-                self.delegate!.dataDownloadDidFailedWithError("Error while saving data")
+                self.delegate!.dataDownloadDidFailedWithError("Error while saving/updating downloaded data")
             }
         }
     }
     
     func parsingDidEndWithError(error: String) {
-        print("*** Parsing Error: \(error).")
+        delegate!.dataDownloadDidFailedWithError("Error while parsing data.")
     }
 }
 

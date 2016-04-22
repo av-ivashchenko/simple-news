@@ -37,10 +37,6 @@ class SNXMLParser: NSObject, NSXMLParserDelegate {
     
     // MARK: - XMLParser delegate
     
-    func parserDidStartDocument(parser: NSXMLParser) {
-        
-    }
-    
     func parser(parser: NSXMLParser,
                 didStartElement elementName: String,
                                 namespaceURI: String?,

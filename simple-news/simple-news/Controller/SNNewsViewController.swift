@@ -10,23 +10,13 @@ import UIKit
 import CoreData
 
 class SNNewsViewController: UITableViewController {
-
-    let dataManager = SNDataManager()
-    
-    enum State {
-        case NotPerformedYet
-        case Loading
-        case NoResults
-        case Loaded
-    }
-    
-    private var state: State = .NotPerformedYet
-    
     var managedObjectContext: NSManagedObjectContext!
-    
     @IBOutlet weak var refreshBarButtonItem: UIBarButtonItem!
     
-    lazy var fetchedResultsController: NSFetchedResultsController = {
+    private let dataManager = SNDataManager()
+    private var isLoading = false
+    
+    private lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest()
         
         let entity = NSEntityDescription.entityForName("SNNewsItem", inManagedObjectContext: self.managedObjectContext)
@@ -81,15 +71,15 @@ class SNNewsViewController: UITableViewController {
     }
     
     @IBAction func refreshButtonTapped(sender: AnyObject) {
-        state = .Loading
+        isLoading = true
         updateUI()
         performRequest()
     }
     
     func updateUI() {
         dispatch_async(dispatch_get_main_queue(), {
-            self.refreshBarButtonItem.enabled = self.state == .Loading ? false : true
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = self.state == .Loading ? true : false
+            self.refreshBarButtonItem.enabled = self.isLoading ? false : true
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = self.isLoading ? true : false
         })
     }
     
@@ -114,7 +104,21 @@ class SNNewsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return fetchedResultsController.sections!.count
+        
+        let sectionsCount = fetchedResultsController.sections!.count
+        
+        if sectionsCount == 0 {
+            let noDataLabel = UILabel(frame: tableView.bounds)
+            noDataLabel.numberOfLines = 0
+            noDataLabel.text = "No data available. Press the refresh button for retrieving apple developer news"
+            noDataLabel.textColor = UIColor(red: 7/255.0, green: 193/255.0, blue: 212/255.0, alpha: 1.0)
+            noDataLabel.textAlignment = NSTextAlignment.Center
+            tableView.backgroundView = noDataLabel
+        } else {
+            tableView.backgroundView = nil
+        }
+        
+        return sectionsCount
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -154,7 +158,7 @@ class SNNewsViewController: UITableViewController {
 
 extension SNNewsViewController: SNDataManagerDelegate {
     func dataDidEndDownload() {
-        state = .Loaded
+        isLoading = false
         updateUI()
     }
     
@@ -164,7 +168,7 @@ extension SNNewsViewController: SNDataManagerDelegate {
         alert.addAction(action)
         
         presentViewController(alert, animated: true, completion: nil)
-        state = .NoResults
+        isLoading = false
         updateUI()
     }
 }
