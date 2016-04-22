@@ -10,13 +10,13 @@
         <scene sceneID="fOp-Z1-IBi">
             <objects>
                 <tableViewController id="94K-ee-rbg" customClass="SNNewsViewController" customModule="simple_news" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="R1G-fu-bMG">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="R1G-fu-bMG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewsItemCell" rowHeight="146" id="H0e-d5-VMA" customClass="SNNewsItemCell" customModule="simple_news" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="146"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="146"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="H0e-d5-VMA" id="pRN-8O-I9d">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="145"/>
@@ -64,7 +64,7 @@
                                     <outlet property="dateLabel" destination="X1g-v4-DfK" id="DSh-Vw-hVJ"/>
                                     <outlet property="detailLabel" destination="GrU-ys-L2v" id="JLg-xz-4IS"/>
                                     <outlet property="nameLabel" destination="Pff-Tn-QNq" id="Y6J-0Y-Zen"/>
-                                    <segue destination="q0S-cI-xqk" kind="push" identifier="ShowItemDetail" id="ECX-ee-tkI"/>
+                                    <segue destination="q0S-cI-xqk" kind="push" identifier="ShowItemDetail" id="WAT-DE-aFe"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -98,61 +98,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Passbook Badge  and Guidelines Now Available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t6-bX-HbE">
-                                <rect key="frame" x="20" y="72" width="280" height="40"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="textColor" red="0.027450980390000001" green="0.75686274509999996" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-icon" translatesAutoresizingMaskIntoConstraints="NO" id="nni-c7-ILE">
-                                <rect key="frame" x="20" y="153" width="70" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="8Pd-mt-nup"/>
-                                    <constraint firstAttribute="height" constant="70" id="b43-rH-gPc"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akR-w5-u97">
-                                <rect key="frame" x="20" y="231" width="280" height="18"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
-                                <color key="textColor" red="0.83137254900000002" green="0.46274509800000002" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed, 19 Dec 2012 16:16:00 PST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axH-Ho-l77">
-                                <rect key="frame" x="20" y="120" width="280" height="25"/>
+                                <rect key="frame" x="8" y="120" width="304" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="9xa-PS-B36"/>
+                                    <constraint firstAttribute="height" constant="21" id="jXo-Xq-dBr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-icon" translatesAutoresizingMaskIntoConstraints="NO" id="nni-c7-ILE">
+                                <rect key="frame" x="8" y="149" width="70" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="CDY-8Y-czx"/>
+                                    <constraint firstAttribute="width" constant="70" id="pbi-aC-TE6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Add to Passbook Badge  and Guidelines Now Available" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t6-bX-HbE">
+                                <rect key="frame" x="8" y="72" width="304" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="g4b-MN-5OY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" red="0.027450980390000001" green="0.75686274509999996" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAl-Om-mmJ">
+                                <rect key="frame" x="4" y="227" width="312" height="333"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1t6-bX-HbE" firstAttribute="top" secondItem="Gtu-2a-N6p" secondAttribute="bottom" constant="8" id="3vm-ga-Zds"/>
-                            <constraint firstItem="akR-w5-u97" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="9nA-jZ-GPN"/>
-                            <constraint firstItem="1t6-bX-HbE" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="BPH-7S-toV"/>
-                            <constraint firstItem="nni-c7-ILE" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="Ckz-RQ-Qq0"/>
-                            <constraint firstItem="axH-Ho-l77" firstAttribute="top" secondItem="1t6-bX-HbE" secondAttribute="bottom" constant="8" id="L55-mi-cZH"/>
-                            <constraint firstAttribute="trailing" secondItem="akR-w5-u97" secondAttribute="trailing" constant="20" id="LwV-yo-DFB"/>
-                            <constraint firstItem="nni-c7-ILE" firstAttribute="top" secondItem="axH-Ho-l77" secondAttribute="bottom" constant="8" id="a8H-gE-sfj"/>
-                            <constraint firstItem="axH-Ho-l77" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="arR-An-gtQ"/>
-                            <constraint firstItem="akR-w5-u97" firstAttribute="top" secondItem="nni-c7-ILE" secondAttribute="bottom" constant="8" id="e5f-T4-zii"/>
-                            <constraint firstAttribute="trailing" secondItem="axH-Ho-l77" secondAttribute="trailing" constant="20" id="tNP-sU-YQN"/>
-                            <constraint firstAttribute="trailing" secondItem="1t6-bX-HbE" secondAttribute="trailing" constant="20" id="ypo-Gd-o32"/>
+                            <constraint firstItem="axH-Ho-l77" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="8" id="Atn-6G-V9l"/>
+                            <constraint firstItem="aAl-Om-mmJ" firstAttribute="top" secondItem="nni-c7-ILE" secondAttribute="bottom" constant="8" id="Dri-zm-wTY"/>
+                            <constraint firstItem="nni-c7-ILE" firstAttribute="top" secondItem="axH-Ho-l77" secondAttribute="bottom" constant="8" id="OkF-R2-y1O"/>
+                            <constraint firstItem="aAl-Om-mmJ" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leadingMargin" constant="-12" id="T5Q-hC-viw"/>
+                            <constraint firstAttribute="trailing" secondItem="1t6-bX-HbE" secondAttribute="trailing" constant="8" id="YQE-M5-2D6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aAl-Om-mmJ" secondAttribute="trailing" constant="-12" id="c2o-5a-sQ6"/>
+                            <constraint firstItem="1t6-bX-HbE" firstAttribute="top" secondItem="Gtu-2a-N6p" secondAttribute="bottom" constant="8" id="he9-h8-JmR"/>
+                            <constraint firstItem="axH-Ho-l77" firstAttribute="top" secondItem="1t6-bX-HbE" secondAttribute="bottom" constant="8" id="jC8-3s-Wse"/>
+                            <constraint firstAttribute="trailing" secondItem="axH-Ho-l77" secondAttribute="trailing" constant="8" id="jPF-a6-glC"/>
+                            <constraint firstItem="XgT-Vb-LiO" firstAttribute="top" secondItem="aAl-Om-mmJ" secondAttribute="bottom" constant="8" id="jgc-r3-Ys4"/>
+                            <constraint firstItem="nni-c7-ILE" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="8" id="pg5-92-Pox"/>
+                            <constraint firstItem="1t6-bX-HbE" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="8" id="y3H-jS-eKc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Apple News" id="dV5-Mc-O1k"/>
                     <connections>
                         <outlet property="dateLabel" destination="axH-Ho-l77" id="CRW-Gx-BqB"/>
+                        <outlet property="itemDescription" destination="aAl-Om-mmJ" id="Pip-mM-vGz"/>
                         <outlet property="nameLabel" destination="1t6-bX-HbE" id="1LD-pu-sFd"/>
-                        <outlet property="newsDescriptionLabel" destination="akR-w5-u97" id="haZ-mu-baK"/>
                         <outlet property="newsImageView" destination="nni-c7-ILE" id="3wU-rP-i28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9v-yW-9FF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877" y="400"/>
+            <point key="canvasLocation" x="966" y="400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pjp-6t-4Pf">
