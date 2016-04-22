@@ -12,19 +12,10 @@ import CoreData
 
 protocol SNDataManagerDelegate: class {
     func dataDidEndDownload()
-    func dataDownloadDidFailedWithError(error: NSString)
+    func dataDownloadDidFailedWithError(error: String)
 }
 
 class SNDataManager: NSObject {
-    
-    enum State {
-        case NotPerformedYet
-        case Loading
-        case NoResults
-        case Results([SNNewsItem])
-    }
-    
-    private(set) var state: State = .NotPerformedYet
     private var dataTask: NSURLSessionDataTask? = nil
     private let parser = SNXMLParser()
     
@@ -43,8 +34,6 @@ class SNDataManager: NSObject {
     
     private func performAPIRequest() {
         dataTask?.cancel()
-        
-        state = .Loading
         
         let url = NSURL(string: "https://developer.apple.com/news/rss/news.rss")!
         parser.delegate = self

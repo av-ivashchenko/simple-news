@@ -13,7 +13,18 @@ class SNNewsViewController: UITableViewController {
 
     let dataManager = SNDataManager()
     
+    enum State {
+        case NotPerformedYet
+        case Loading
+        case NoResults
+        case Loaded
+    }
+    
+    private var state: State = .NotPerformedYet
+    
     var managedObjectContext: NSManagedObjectContext!
+    
+    @IBOutlet weak var refreshBarButtonItem: UIBarButtonItem!
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest()
@@ -27,7 +38,7 @@ class SNNewsViewController: UITableViewController {
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: self.managedObjectContext,
                                                                   sectionNameKeyPath: "pubDate",
-                                                                  cacheName: "NewsItems")
+                                                                  cacheName: "SNNewsItems")
         fetchedResultsController.delegate = self
         
         return fetchedResultsController
@@ -70,13 +81,21 @@ class SNNewsViewController: UITableViewController {
     }
     
     @IBAction func refreshButtonTapped(sender: AnyObject) {
+        state = .Loading
+        updateUI()
         performRequest()
+    }
+    
+    func updateUI() {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.refreshBarButtonItem.enabled = self.state == .Loading ? false : true
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = self.state == .Loading ? true : false
+        })
     }
     
     // MARK: - Data handling
     
     func performRequest() {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         dataManager.getData()
     }
     
@@ -135,11 +154,18 @@ class SNNewsViewController: UITableViewController {
 
 extension SNNewsViewController: SNDataManagerDelegate {
     func dataDidEndDownload() {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        state = .Loaded
+        updateUI()
     }
     
-    func dataDownloadDidFailedWithError(error: NSString) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func dataDownloadDidFailedWithError(error: String) {
+        let alert = UIAlertController(title: "Whoops...", message: error, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alert.addAction(action)
+        
+        presentViewController(alert, animated: true, completion: nil)
+        state = .NoResults
+        updateUI()
     }
 }
 
