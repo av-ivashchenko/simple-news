@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 protocol SNDataManagerDelegate: class {
     func dataDidEndDownload()
@@ -29,6 +30,13 @@ class SNDataManager: NSObject {
     
     weak var delegate: SNDataManagerDelegate?
     
+    var managedObjectContext: NSManagedObjectContext! {
+        didSet {
+            localDatabaseManager.managedObjectContext = managedObjectContext
+        }
+    }
+    var localDatabaseManager = SNLocalDatabaseManager()
+    
     func getData() {
         performAPIRequest()
     }
@@ -47,7 +55,13 @@ class SNDataManager: NSObject {
 extension SNDataManager: SNXMLParserDelegate {
     
     func parsingDidEndWithData(data: [Dictionary<String, String>]) {
-        
+        localDatabaseManager.saveData(data) { success in
+            if success {
+                self.delegate!.dataDidEndDownload()
+            } else {
+                self.delegate!.dataDownloadDidFailedWithError("Error while saving data")
+            }
+        }
     }
     
     func parsingDidEndWithError(error: String) {

@@ -11,7 +11,7 @@ import CoreData
 
 class SNNewsViewController: UITableViewController {
 
-    let networkManager = SNDataManager()
+    let dataManager = SNDataManager()
     
     var managedObjectContext: NSManagedObjectContext!
     
@@ -33,16 +33,41 @@ class SNNewsViewController: UITableViewController {
         return fetchedResultsController
     }()
     
+    deinit {
+        fetchedResultsController.delegate = nil
+    }
+    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkManager.delegate = self
+        dataManager.delegate = self
+        dataManager.managedObjectContext = managedObjectContext
+        
+        performFetch()
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowItemDetail" {
+            let itemDetailController = segue.destinationViewController as! SNNewsDetailViewController
+            
+            if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
+                let newsItem = fetchedResultsController.objectAtIndexPath(indexPath) as! SNNewsItem
+                itemDetailController.newsItem = newsItem
+            }
+        }
     }
     
     // MARK: - Other
     
+    func performFetch() {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalCoreDataError(error)
+        }
+    }
     
     @IBAction func refreshButtonTapped(sender: AnyObject) {
         performRequest()
@@ -52,7 +77,7 @@ class SNNewsViewController: UITableViewController {
     
     func performRequest() {
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        networkManager.getData()
+        dataManager.getData()
     }
     
     func showNetworkError() {
@@ -70,15 +95,21 @@ class SNNewsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return fetchedResultsController.sections!.count
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let sectionInfo = fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NewsItemCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("NewsItemCell", forIndexPath: indexPath) as! SNNewsItemCell
+        
+        let newsItem = fetchedResultsController.objectAtIndexPath(indexPath) as! SNNewsItem
+        
+        cell.configureForNewsItem(newsItem)
+        
         return cell
     }
     

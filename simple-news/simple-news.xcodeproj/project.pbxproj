@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		893EDFC81CCA39A2002D25A5 /* SNXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFC71CCA39A2002D25A5 /* SNXMLParser.swift */; };
 		893EDFCB1CCA41D2002D25A5 /* SNFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */; };
+		893EDFCF1CCA4945002D25A5 /* SNLocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFCE1CCA4945002D25A5 /* SNLocalDatabaseManager.swift */; };
+		893EDFD11CCA4CFF002D25A5 /* NSDate+DateFromString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFD01CCA4CFF002D25A5 /* NSDate+DateFromString.swift */; };
 		89DE524E1CCA1CC0008634D8 /* SNDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE524D1CCA1CC0008634D8 /* SNDataManager.swift */; };
 		89DE52501CCA1CE6008634D8 /* SNNewsItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */; };
 		89DE52531CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE52511CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		893EDFC71CCA39A2002D25A5 /* SNXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNXMLParser.swift; path = Model/SNXMLParser.swift; sourceTree = "<group>"; };
 		893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNFunctions.swift; path = Model/SNFunctions.swift; sourceTree = "<group>"; };
+		893EDFCE1CCA4945002D25A5 /* SNLocalDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNLocalDatabaseManager.swift; path = Model/SNLocalDatabaseManager.swift; sourceTree = "<group>"; };
+		893EDFD01CCA4CFF002D25A5 /* NSDate+DateFromString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+DateFromString.swift"; path = "Model/NSDate+DateFromString.swift"; sourceTree = "<group>"; };
 		89DE524D1CCA1CC0008634D8 /* SNDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNDataManager.swift; path = Model/SNDataManager.swift; sourceTree = "<group>"; };
 		89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNNewsItemCell.swift; path = View/SNNewsItemCell.swift; sourceTree = "<group>"; };
 		89DE52511CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "SNNewsItem+CoreDataProperties.swift"; path = "Model/SNNewsItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -49,18 +53,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		893EDFC61CCA3982002D25A5 /* XML Parser */ = {
+		89159FEB1CCA5986001B3D3C /* NIAttributedLabel */ = {
 			isa = PBXGroup;
 			children = (
-				893EDFC71CCA39A2002D25A5 /* SNXMLParser.swift */,
 			);
-			name = "XML Parser";
+			name = NIAttributedLabel;
+			sourceTree = "<group>";
+		};
+		893EDFC61CCA3982002D25A5 /* Data handling */ = {
+			isa = PBXGroup;
+			children = (
+				89DE524D1CCA1CC0008634D8 /* SNDataManager.swift */,
+				893EDFC71CCA39A2002D25A5 /* SNXMLParser.swift */,
+				893EDFCE1CCA4945002D25A5 /* SNLocalDatabaseManager.swift */,
+			);
+			name = "Data handling";
 			sourceTree = "<group>";
 		};
 		893EDFC91CCA41B7002D25A5 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */,
+				893EDFD01CCA4CFF002D25A5 /* NSDate+DateFromString.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -105,10 +119,9 @@
 		89FE1B4D1CCA12F500155354 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				893EDFC91CCA41B7002D25A5 /* Other */,
 				89FE1B501CCA131A00155354 /* News Item */,
-				893EDFC61CCA3982002D25A5 /* XML Parser */,
-				89FE1B511CCA132F00155354 /* Network */,
+				893EDFC61CCA3982002D25A5 /* Data handling */,
+				893EDFC91CCA41B7002D25A5 /* Other */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -116,6 +129,7 @@
 		89FE1B4E1CCA12FD00155354 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				89159FEB1CCA5986001B3D3C /* NIAttributedLabel */,
 				89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */,
 				89FE1B3B1CCA03EC00155354 /* Main.storyboard */,
 			);
@@ -139,14 +153,6 @@
 				89FE1B3E1CCA03EC00155354 /* SNNewsItem.xcdatamodeld */,
 			);
 			name = "News Item";
-			sourceTree = "<group>";
-		};
-		89FE1B511CCA132F00155354 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				89DE524D1CCA1CC0008634D8 /* SNDataManager.swift */,
-			);
-			name = Network;
 			sourceTree = "<group>";
 		};
 		89FE1B521CCA134A00155354 /* Main News Scene */ = {
@@ -241,7 +247,9 @@
 				893EDFC81CCA39A2002D25A5 /* SNXMLParser.swift in Sources */,
 				89FE1B561CCA13A100155354 /* SNNewsViewController.swift in Sources */,
 				89FE1B401CCA03EC00155354 /* SNNewsItem.xcdatamodeld in Sources */,
+				893EDFD11CCA4CFF002D25A5 /* NSDate+DateFromString.swift in Sources */,
 				89FE1B581CCA13BC00155354 /* SNNewsDetailViewController.swift in Sources */,
+				893EDFCF1CCA4945002D25A5 /* SNLocalDatabaseManager.swift in Sources */,
 				89DE524E1CCA1CC0008634D8 /* SNDataManager.swift in Sources */,
 				89DE52501CCA1CE6008634D8 /* SNNewsItemCell.swift in Sources */,
 				893EDFCB1CCA41D2002D25A5 /* SNFunctions.swift in Sources */,

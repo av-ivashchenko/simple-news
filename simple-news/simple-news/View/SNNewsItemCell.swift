@@ -15,6 +15,7 @@ class SNNewsItemCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
  
     func configureForNewsItem(newsItem: SNNewsItem) {
-        
+        nameLabel.text = newsItem.title
+        detailLabel.text = newsItem.itemDescription
     }
 }
