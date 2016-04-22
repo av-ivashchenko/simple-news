@@ -30,7 +30,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let newsViewController = navigationController.viewControllers[0] as! SNNewsViewController
         newsViewController.managedObjectContext = managedObjectContext
         
+        customizeAppearance()
+        listenForFatalCoreDataNotifications()
+        
         return true
+    }
+    
+    func customizeAppearance() {
+        UINavigationBar.appearance().barTintColor = UIColor(red: 7/255.0, green: 193/255.0, blue: 212/255.0, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.whiteColor() ]
+        UINavigationBar.appearance().tintColor = UIColor(red: 7/255.0, green: 141/255.0, blue: 212/255.0, alpha: 1.0)
+    }
+    
+    func listenForFatalCoreDataNotifications() {
+        NSNotificationCenter.defaultCenter().addObserverForName(SNManagedObjectContextSaveDidFailNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { notification in
+            let alert = UIAlertController(title: "Internal Error", message: "There was a fatal error in the app and it cannot continue.\n\n" + "Press OK to terminate the app. Sorry for the inconvenience.", preferredStyle: .Alert)
+            
+            let action = UIAlertAction(title: "OK", style: .Default) { _ in
+                let exception = NSException(name: NSInternalInconsistencyException, reason: "Fatal Error Core Data Crash", userInfo: nil)
+                exception.raise()
+            }
+            
+            alert.addAction(action)
+            
+            self.viewControllerForShowingAlert().presentViewController(alert, animated: true, completion: nil)
+        })
+    }
+    
+    func viewControllerForShowingAlert() -> UIViewController {
+        let rootViewController = window!.rootViewController!
+        if let presentedViewController = rootViewController.presentedViewController {
+            return presentedViewController
+        } else {
+            return rootViewController
+        }
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

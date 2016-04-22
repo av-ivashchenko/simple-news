@@ -28,13 +28,13 @@
                                                 <constraint firstAttribute="height" constant="41" id="Za9-6h-GV9"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.027450980392156862" green="0.75686274509803919" blue="0.83137254901960778" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Passbook is the simplies way for user to store all their passes in one place" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrU-ys-L2v">
                                             <rect key="frame" x="8" y="57" width="279" height="51"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.83137254901960778" green="0.46274509803921571" blue="0.027450980392156862" alpha="0.5" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed, 19 Dec 2012 16:16:00 PST" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1g-v4-DfK">
@@ -64,7 +64,7 @@
                                     <outlet property="dateLabel" destination="X1g-v4-DfK" id="DSh-Vw-hVJ"/>
                                     <outlet property="detailLabel" destination="GrU-ys-L2v" id="JLg-xz-4IS"/>
                                     <outlet property="nameLabel" destination="Pff-Tn-QNq" id="Y6J-0Y-Zen"/>
-                                    <segue destination="q0S-cI-xqk" kind="push" id="ECX-ee-tkI"/>
+                                    <segue destination="q0S-cI-xqk" kind="push" identifier="ShowItemDetail" id="ECX-ee-tkI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -99,26 +99,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Passbook Badge  and Guidelines Now Available" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1t6-bX-HbE">
-                                <rect key="frame" x="20" y="72" width="280" height="41"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="20" y="72" width="280" height="40"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" red="0.027450980390000001" green="0.75686274509999996" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nni-c7-ILE">
-                                <rect key="frame" x="20" y="154" width="70" height="70"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple-icon" translatesAutoresizingMaskIntoConstraints="NO" id="nni-c7-ILE">
+                                <rect key="frame" x="20" y="153" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="8Pd-mt-nup"/>
                                     <constraint firstAttribute="height" constant="70" id="b43-rH-gPc"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akR-w5-u97">
-                                <rect key="frame" x="20" y="232" width="280" height="316"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="akR-w5-u97">
+                                <rect key="frame" x="20" y="231" width="280" height="18"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="15"/>
+                                <color key="textColor" red="0.83137254900000002" green="0.46274509800000002" blue="0.027450980390000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wed, 19 Dec 2012 16:16:00 PST" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axH-Ho-l77">
-                                <rect key="frame" x="20" y="121" width="280" height="25"/>
+                                <rect key="frame" x="20" y="120" width="280" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="9xa-PS-B36"/>
                                 </constraints>
@@ -130,11 +130,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="1t6-bX-HbE" firstAttribute="top" secondItem="Gtu-2a-N6p" secondAttribute="bottom" constant="8" id="3vm-ga-Zds"/>
+                            <constraint firstItem="akR-w5-u97" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="9nA-jZ-GPN"/>
                             <constraint firstItem="1t6-bX-HbE" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="BPH-7S-toV"/>
                             <constraint firstItem="nni-c7-ILE" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="Ckz-RQ-Qq0"/>
                             <constraint firstItem="axH-Ho-l77" firstAttribute="top" secondItem="1t6-bX-HbE" secondAttribute="bottom" constant="8" id="L55-mi-cZH"/>
+                            <constraint firstAttribute="trailing" secondItem="akR-w5-u97" secondAttribute="trailing" constant="20" id="LwV-yo-DFB"/>
                             <constraint firstItem="nni-c7-ILE" firstAttribute="top" secondItem="axH-Ho-l77" secondAttribute="bottom" constant="8" id="a8H-gE-sfj"/>
                             <constraint firstItem="axH-Ho-l77" firstAttribute="leading" secondItem="tHj-fY-1PE" secondAttribute="leading" constant="20" id="arR-An-gtQ"/>
+                            <constraint firstItem="akR-w5-u97" firstAttribute="top" secondItem="nni-c7-ILE" secondAttribute="bottom" constant="8" id="e5f-T4-zii"/>
                             <constraint firstAttribute="trailing" secondItem="axH-Ho-l77" secondAttribute="trailing" constant="20" id="tNP-sU-YQN"/>
                             <constraint firstAttribute="trailing" secondItem="1t6-bX-HbE" secondAttribute="trailing" constant="20" id="ypo-Gd-o32"/>
                         </constraints>
@@ -165,7 +168,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybi-Th-RYN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108" y="400"/>
+            <point key="canvasLocation" x="-37" y="400"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="apple-icon" width="64" height="64"/>
+    </resources>
 </document>
