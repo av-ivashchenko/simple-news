@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		89FE1B381CCA03EC00155354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B371CCA03EC00155354 /* AppDelegate.swift */; };
+		89FE1B3A1CCA03EC00155354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B391CCA03EC00155354 /* ViewController.swift */; };
+		89FE1B3D1CCA03EC00155354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FE1B3B1CCA03EC00155354 /* Main.storyboard */; };
+		89FE1B401CCA03EC00155354 /* simple_news.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89FE1B3E1CCA03EC00155354 /* simple_news.xcdatamodeld */; };
+		89FE1B421CCA03EC00155354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89FE1B411CCA03EC00155354 /* Assets.xcassets */; };
+		89FE1B451CCA03EC00155354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89FE1B431CCA03EC00155354 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		89FE1B341CCA03EC00155354 /* simple-news.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "simple-news.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		89FE1B371CCA03EC00155354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		89FE1B391CCA03EC00155354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		89FE1B3C1CCA03EC00155354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		89FE1B3F1CCA03EC00155354 /* simple_news.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = simple_news.xcdatamodel; sourceTree = "<group>"; };
+		89FE1B411CCA03EC00155354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		89FE1B441CCA03EC00155354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		89FE1B461CCA03EC00155354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		89FE1B311CCA03EC00155354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		89FE1B2B1CCA03EC00155354 = {
+			isa = PBXGroup;
+			children = (
+				89FE1B361CCA03EC00155354 /* simple-news */,
+				89FE1B351CCA03EC00155354 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		89FE1B351CCA03EC00155354 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89FE1B341CCA03EC00155354 /* simple-news.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		89FE1B361CCA03EC00155354 /* simple-news */ = {
+			isa = PBXGroup;
+			children = (
+				89FE1B371CCA03EC00155354 /* AppDelegate.swift */,
+				89FE1B391CCA03EC00155354 /* ViewController.swift */,
+				89FE1B3B1CCA03EC00155354 /* Main.storyboard */,
+				89FE1B411CCA03EC00155354 /* Assets.xcassets */,
+				89FE1B431CCA03EC00155354 /* LaunchScreen.storyboard */,
+				89FE1B461CCA03EC00155354 /* Info.plist */,
+				89FE1B3E1CCA03EC00155354 /* simple_news.xcdatamodeld */,
+			);
+			path = "simple-news";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		89FE1B331CCA03EC00155354 /* simple-news */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 89FE1B491CCA03EC00155354 /* Build configuration list for PBXNativeTarget "simple-news" */;
+			buildPhases = (
+				89FE1B301CCA03EC00155354 /* Sources */,
+				89FE1B311CCA03EC00155354 /* Frameworks */,
+				89FE1B321CCA03EC00155354 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "simple-news";
+			productName = "simple-news";
+			productReference = 89FE1B341CCA03EC00155354 /* simple-news.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		89FE1B2C1CCA03EC00155354 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Aleksandr Ivashchenko";
+				TargetAttributes = {
+					89FE1B331CCA03EC00155354 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 48ETW79YVL;
+					};
+				};
+			};
+			buildConfigurationList = 89FE1B2F1CCA03EC00155354 /* Build configuration list for PBXProject "simple-news" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 89FE1B2B1CCA03EC00155354;
+			productRefGroup = 89FE1B351CCA03EC00155354 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				89FE1B331CCA03EC00155354 /* simple-news */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		89FE1B321CCA03EC00155354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FE1B451CCA03EC00155354 /* LaunchScreen.storyboard in Resources */,
+				89FE1B421CCA03EC00155354 /* Assets.xcassets in Resources */,
+				89FE1B3D1CCA03EC00155354 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		89FE1B301CCA03EC00155354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89FE1B3A1CCA03EC00155354 /* ViewController.swift in Sources */,
+				89FE1B401CCA03EC00155354 /* simple_news.xcdatamodeld in Sources */,
+				89FE1B381CCA03EC00155354 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		89FE1B3B1CCA03EC00155354 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89FE1B3C1CCA03EC00155354 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		89FE1B431CCA03EC00155354 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				89FE1B441CCA03EC00155354 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		89FE1B471CCA03EC00155354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		89FE1B481CCA03EC00155354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		89FE1B4A1CCA03EC00155354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "simple-news/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ivashchenko.simple-news";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		89FE1B4B1CCA03EC00155354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "simple-news/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ivashchenko.simple-news";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		89FE1B2F1CCA03EC00155354 /* Build configuration list for PBXProject "simple-news" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89FE1B471CCA03EC00155354 /* Debug */,
+				89FE1B481CCA03EC00155354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		89FE1B491CCA03EC00155354 /* Build configuration list for PBXNativeTarget "simple-news" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89FE1B4A1CCA03EC00155354 /* Debug */,
+				89FE1B4B1CCA03EC00155354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		89FE1B3E1CCA03EC00155354 /* simple_news.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				89FE1B3F1CCA03EC00155354 /* simple_news.xcdatamodel */,
+			);
+			currentVersion = 89FE1B3F1CCA03EC00155354 /* simple_news.xcdatamodel */;
+			path = simple_news.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 89FE1B2C1CCA03EC00155354 /* Project object */;
+}
