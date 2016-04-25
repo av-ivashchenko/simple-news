@@ -9,13 +9,22 @@
 import UIKit
 import CoreData
 
+///Main news items controller
 class SNNewsViewController: UITableViewController {
+    
+    ///Context for getting data from local database
     var managedObjectContext: NSManagedObjectContext!
+    
+    ///Right bar button for refreshing data
     @IBOutlet weak var refreshBarButtonItem: UIBarButtonItem!
     
+    ///Manager for refreshing data
     private let dataManager = SNDataManager()
+    
+    ///Bool value signifiying about current state of connection requests
     private var isLoading = false
     
+    ///Fetched results controller for getting/updating data
     private lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest()
         
@@ -60,23 +69,10 @@ class SNNewsViewController: UITableViewController {
         }
     }
     
-    // MARK: - Other
+    // MARK: - UI updating methods
     
-    func performFetch() {
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalCoreDataError(error)
-        }
-    }
-    
-    @IBAction func refreshButtonTapped(sender: AnyObject) {
-        isLoading = true
-        updateUI()
-        performRequest()
-    }
-    
-    func updateUI() {
+    ///Function for updating UI elements after changing internet requests states
+    private func updateUI() {
         dispatch_async(dispatch_get_main_queue(), {
             self.refreshBarButtonItem.enabled = self.isLoading ? false : true
             UIApplication.sharedApplication().networkActivityIndicatorVisible = self.isLoading ? true : false
@@ -85,11 +81,28 @@ class SNNewsViewController: UITableViewController {
     
     // MARK: - Data handling
     
-    func performRequest() {
+    @IBAction func refreshButtonTapped(sender: AnyObject) {
+        isLoading = true
+        updateUI()
+        performRequest()
+    }
+    
+    ///Fetch data method
+    private func performFetch() {
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalCoreDataError(error)
+        }
+    }
+    
+    ///Perform request to the web service
+    private func performRequest() {
         dataManager.getData()
     }
     
-    func showNetworkError() {
+    ///Show alert with error message to the user
+    private func showNetworkError() {
         let alert = UIAlertController(
             title: NSLocalizedString("Whoops...", comment: "Error alert: title"),
             message: NSLocalizedString("There was an error reading from the Apple RSS. Please try again.", comment: "Error alert: message"),
@@ -156,6 +169,8 @@ class SNNewsViewController: UITableViewController {
     }
 }
 
+///Extension for implementing methods of Data Manager Delegate
+
 extension SNNewsViewController: SNDataManagerDelegate {
     func dataDidEndDownload() {
         isLoading = false
@@ -174,6 +189,8 @@ extension SNNewsViewController: SNDataManagerDelegate {
         })
     }
 }
+
+///Extension for implementing methods of Fetched Results Controller Delegate
 
 extension SNNewsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
@@ -208,9 +225,9 @@ extension SNNewsViewController: NSFetchedResultsControllerDelegate {
         case .Delete:
             tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
         case .Update:
-            print("*** Update section")
+            break;
         case .Move:
-            print("*** Move section")
+            break;
         }
     }
     

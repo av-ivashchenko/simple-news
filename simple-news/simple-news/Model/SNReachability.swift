@@ -9,7 +9,14 @@
 import Foundation
 import SystemConfiguration
 
+///Class for checking current connection to the internet
 public class Reachability {
+    
+    /**
+     Class function for checking internet connection
+     
+     - Returns: Bool value of internet connection status
+     */
     class func isConnectedToNetwork() -> Bool {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))

@@ -8,6 +8,8 @@
 
 import Foundation
 
+///Constant strings  
+
 let kItem = "item"
 let kTitle = "title"
 let kLink = "link"

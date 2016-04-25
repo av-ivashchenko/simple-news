@@ -9,21 +9,51 @@
 import Foundation
 import UIKit
 
+///Delegate for notifiying about successful or failed parsing XML documents
 protocol SNXMLParserDelegate: class {
-    func parsingDidEndWithData(data: [Dictionary<String, String>])
-    func parsingDidEndWithError(error: String)
     
+    /**
+     Called when XML document parsing completed with success
+     
+     - Parameter data: The array of news items of type Dictionary<String, String>
+     with keys: "title", "link", "pubDate", "description"
+     */
+    func parsingDidEndWithData(data: [Dictionary<String, String>])
+    
+    /**
+     Called when XML document parsing ended with error
+     
+     - Parameter error: Localised error string
+     */
+    func parsingDidEndWithError(error: String)
 }
 
+///Class for parsing functions
 class SNXMLParser: NSObject, NSXMLParserDelegate {
     
+    ///The array of parsed news item data
     var parsedData = [Dictionary<String, String>]()
+    
+    ///Temporary array for current found characters in XML document element
     var currentDataDictionary = [ String: String ]()
+    
+    ///Current inspected XML element
     var currentElement = ""
+    
+    ///Found characters in current XML element
     var foundCharacters = ""
+    
+    ///Bool value for processing news item in XML document
     var itemFound = false
+    
+    ///Delegate for notifiyng about parsing processing
     weak var delegate: SNXMLParserDelegate?
     
+    /**
+     Parse data from url
+     
+     - Parameter url: URL for parsing
+    */
     func parseDataFromURL(url: NSURL) {
         let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
         dispatch_async(queue, {
@@ -36,6 +66,8 @@ class SNXMLParser: NSObject, NSXMLParserDelegate {
     }
     
     // MARK: - XMLParser delegate
+
+    ///Implementing XML Parser delegate methods
     
     func parser(parser: NSXMLParser,
                 didStartElement elementName: String,

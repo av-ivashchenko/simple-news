@@ -13,10 +13,17 @@ import Foundation
 import CoreData
 
 extension SNNewsItem {
-
+    
+    ///Title of news item
     @NSManaged var title: String
+    
+    ///Link to the website with full information
     @NSManaged var link: String
+    
+    ///Publication date of the news item
     @NSManaged var pubDate: NSDate
+    
+    ///Full description of news item
     @NSManaged var itemDescription: String
 
 }

@@ -11,8 +11,12 @@ import CoreData
 
 let SNManagedObjectContextSaveDidFailNotification = "SNManagedObjectContextSaveDidFailNotification"
 
+/**
+ Global function for notifying app about errors in processing data in Core Data.
+ 
+ - Parameter error: Error of ErrorType
+ */
 func fatalCoreDataError(error: ErrorType) {
-    print("Error: \(error)")
     NSNotificationCenter.defaultCenter().postNotificationName(SNManagedObjectContextSaveDidFailNotification, object: nil)
 }
 
@@ -23,9 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
-        print("*** \(documentsDirectory)")
-        
+
         let navigationController = window!.rootViewController as! UINavigationController
         let newsViewController = navigationController.viewControllers[0] as! SNNewsViewController
         newsViewController.managedObjectContext = managedObjectContext
@@ -36,12 +38,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    ///Method for customizing appearance of UI elements
     func customizeAppearance() {
         UINavigationBar.appearance().barTintColor = UIColor(red: 7/255.0, green: 193/255.0, blue: 212/255.0, alpha: 1.0)
         UINavigationBar.appearance().titleTextAttributes = [ NSForegroundColorAttributeName: UIColor.whiteColor() ]
         UINavigationBar.appearance().tintColor = UIColor(red: 7/255.0, green: 141/255.0, blue: 212/255.0, alpha: 1.0)
     }
     
+    ///Method for processing Core Data errors
     func listenForFatalCoreDataNotifications() {
         NSNotificationCenter.defaultCenter().addObserverForName(SNManagedObjectContextSaveDidFailNotification, object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { notification in
             let alert = UIAlertController(title: "Internal Error", message: "There was a fatal error in the app and it cannot continue.\n\n" + "Press OK to terminate the app. Sorry for the inconvenience.", preferredStyle: .Alert)
@@ -57,6 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
     }
     
+    /**
+     Method for showing alert from any place of the app.
+     
+     - Returns: View Controller for showing alert.
+     */
     func viewControllerForShowingAlert() -> UIViewController {
         let rootViewController = window!.rootViewController!
         if let presentedViewController = rootViewController.presentedViewController {

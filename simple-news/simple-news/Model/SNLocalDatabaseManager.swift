@@ -11,10 +11,19 @@ import CoreData
 
 typealias SaveComplete = (String?) -> Void
 
+///Class for processing data in local database
 class SNLocalDatabaseManager {
     
+    ///Context for saving data
     var managedObjectContext: NSManagedObjectContext!
     
+    /**
+     Save data in local database
+     
+     - Parameters: 
+        - data: Array of news items of type Dictionary<String, String>
+        - completion: Block for notifiyng about successful or failed saving in local database
+     */
     func saveData(data: [Dictionary<String, String>], completion: SaveComplete) {
         
         let currNewsItem = retrieveItemWithMaxPubDate()
@@ -23,12 +32,16 @@ class SNLocalDatabaseManager {
             let itemDate = NSDate.dateFromString(dict[kPubDate]!)
             
             if let currNewsItem = currNewsItem where itemDate.compare(currNewsItem.pubDate) == .OrderedDescending {
-                print("*** Just got fresh news item!")
+                
+                ///Just got fresh news item
                 saveNewsItemDict(dict, pubDate: itemDate, completion: completion)
             } else if currNewsItem == nil {
-                print("*** Empty local database")
+                
+                ///Empty local database
                 saveNewsItemDict(dict, pubDate: itemDate, completion: completion)
             } else {
+                
+                ///News in local database are up-to-date
                 completion("Your news are up-to-date.")
                 break
             }
@@ -36,9 +49,20 @@ class SNLocalDatabaseManager {
         completion(nil)
     }
     
-    func saveNewsItemDict(dict: Dictionary<String, String>, pubDate: NSDate, completion: SaveComplete) {
+    /**
+     Save news item to the local database
+     
+     - Parameters: 
+        - dict: News item info
+        - pubDate: News item's publication date
+        - completion: Block for notifiying about results of saving data
+     */
+     private func saveNewsItemDict(dict: Dictionary<String, String>, pubDate: NSDate, completion: SaveComplete) {
+        
+        ///Insert new item to local database
         let newsItem = NSEntityDescription.insertNewObjectForEntityForName(kNewsItemEntity, inManagedObjectContext: managedObjectContext) as! SNNewsItem
 
+        ///Initialiase all properties
         newsItem.title = dict[kTitle]!
         newsItem.itemDescription = dict[kDescription]!
         newsItem.link = dict[kLink]!
@@ -53,7 +77,12 @@ class SNLocalDatabaseManager {
         }
     }
     
-    func retrieveItemWithMaxPubDate() -> SNNewsItem? {
+    /**
+     Fetch fresh news item from local database
+     
+     - Returns: Fresh news item
+     */
+    private func retrieveItemWithMaxPubDate() -> SNNewsItem? {
         let fetchRequest = NSFetchRequest()
         
         let entity = NSEntityDescription.entityForName(kNewsItemEntity, inManagedObjectContext: self.managedObjectContext)
@@ -66,7 +95,7 @@ class SNLocalDatabaseManager {
             let newsItem = try managedObjectContext.executeFetchRequest(fetchRequest).first as? SNNewsItem
             return newsItem
         } catch {
-            print("*** Error: \(error).")
+            fatalCoreDataError(error)
             return nil
         }
     }

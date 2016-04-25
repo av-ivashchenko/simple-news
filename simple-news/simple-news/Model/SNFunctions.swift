@@ -8,6 +8,7 @@
 
 import Foundation
 
+///Returns application documents directory string
 let applicationDocumentsDirectory: String = {
     let documentsDirectory = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0]
     return documentsDirectory
