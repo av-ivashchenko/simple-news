@@ -39,7 +39,7 @@ class SNDataManager: NSObject {
     weak var delegate: SNDataManagerDelegate?
     
     ///Manager for saving new data in local database
-    var localDatabaseManager = SNLocalDatabaseManager()
+    private var localDatabaseManager = SNLocalDatabaseManager()
     
     ///Context for defining local database's context
     var managedObjectContext: NSManagedObjectContext! {

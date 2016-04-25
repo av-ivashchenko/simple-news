@@ -32,19 +32,19 @@ protocol SNXMLParserDelegate: class {
 class SNXMLParser: NSObject, NSXMLParserDelegate {
     
     ///The array of parsed news item data
-    var parsedData = [Dictionary<String, String>]()
+    private var parsedData = [Dictionary<String, String>]()
     
     ///Temporary array for current found characters in XML document element
-    var currentDataDictionary = [ String: String ]()
+    private var currentDataDictionary = [ String: String ]()
     
     ///Current inspected XML element
-    var currentElement = ""
+    private var currentElement = ""
     
     ///Found characters in current XML element
-    var foundCharacters = ""
+    private var foundCharacters = ""
     
     ///Bool value for processing news item in XML document
-    var itemFound = false
+    private var itemFound = false
     
     ///Delegate for notifiyng about parsing processing
     weak var delegate: SNXMLParserDelegate?
