@@ -51,11 +51,11 @@ class SNDataManager: NSObject {
 extension SNDataManager: SNXMLParserDelegate {
     
     func parsingDidEndWithData(data: [Dictionary<String, String>]) {
-        localDatabaseManager.saveData(data) { success in
-            if success {
-                self.delegate!.dataDidEndDownload()
+        localDatabaseManager.saveData(data) { errorString in
+            if let errorString = errorString {
+                self.delegate!.dataDownloadDidFailedWithError(errorString)
             } else {
-                self.delegate!.dataDownloadDidFailedWithError("Error while saving/updating downloaded data")
+                self.delegate!.dataDidEndDownload()
             }
         }
     }

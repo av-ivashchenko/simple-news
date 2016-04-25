@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-typealias SaveComplete = (Bool) -> Void
+typealias SaveComplete = (String?) -> Void
 
 class SNLocalDatabaseManager {
     
@@ -29,10 +29,11 @@ class SNLocalDatabaseManager {
                 print("*** Empty local database")
                 saveNewsItemDict(dict, pubDate: itemDate, completion: completion)
             } else {
+                completion("Your news are up-to-date.")
                 break
             }
         }
-        completion(true)
+        completion(nil)
     }
     
     func saveNewsItemDict(dict: Dictionary<String, String>, pubDate: NSDate, completion: SaveComplete) {
@@ -47,7 +48,7 @@ class SNLocalDatabaseManager {
             try managedObjectContext.save()
         } catch {
             fatalCoreDataError(error)
-            completion(false)
+            completion("Error while saving data in local database.")
             return
         }
     }

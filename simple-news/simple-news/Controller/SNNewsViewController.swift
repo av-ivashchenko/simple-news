@@ -163,13 +163,15 @@ extension SNNewsViewController: SNDataManagerDelegate {
     }
     
     func dataDownloadDidFailedWithError(error: String) {
-        let alert = UIAlertController(title: "Whoops...", message: error, preferredStyle: .Alert)
+        let alert = UIAlertController(title: "", message: error, preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alert.addAction(action)
         
-        presentViewController(alert, animated: true, completion: nil)
-        isLoading = false
-        updateUI()
+        dispatch_async(dispatch_get_main_queue(), {
+            self.presentViewController(alert, animated: true, completion: nil)
+            self.isLoading = false
+            self.updateUI()
+        })
     }
 }
 
