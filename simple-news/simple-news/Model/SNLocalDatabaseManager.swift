@@ -20,7 +20,7 @@ class SNLocalDatabaseManager {
         let currNewsItem = retrieveItemWithMaxPubDate()
         
         for dict in data {
-            let itemDate = NSDate.dateFromString(dict["pubDate"]!)
+            let itemDate = NSDate.dateFromString(dict[kPubDate]!)
             
             if let currNewsItem = currNewsItem where itemDate.compare(currNewsItem.pubDate) == .OrderedDescending {
                 print("*** Just got fresh news item!")
@@ -36,11 +36,11 @@ class SNLocalDatabaseManager {
     }
     
     func saveNewsItemDict(dict: Dictionary<String, String>, pubDate: NSDate, completion: SaveComplete) {
-        let newsItem = NSEntityDescription.insertNewObjectForEntityForName("SNNewsItem", inManagedObjectContext: managedObjectContext) as! SNNewsItem
+        let newsItem = NSEntityDescription.insertNewObjectForEntityForName(kNewsItemEntity, inManagedObjectContext: managedObjectContext) as! SNNewsItem
 
-        newsItem.title = dict["title"]!
-        newsItem.itemDescription = dict["description"]!
-        newsItem.link = dict["link"]!
+        newsItem.title = dict[kTitle]!
+        newsItem.itemDescription = dict[kDescription]!
+        newsItem.link = dict[kLink]!
         newsItem.pubDate = pubDate
         
         do {
@@ -55,10 +55,10 @@ class SNLocalDatabaseManager {
     func retrieveItemWithMaxPubDate() -> SNNewsItem? {
         let fetchRequest = NSFetchRequest()
         
-        let entity = NSEntityDescription.entityForName("SNNewsItem", inManagedObjectContext: self.managedObjectContext)
+        let entity = NSEntityDescription.entityForName(kNewsItemEntity, inManagedObjectContext: self.managedObjectContext)
         fetchRequest.entity = entity
         fetchRequest.fetchLimit = 1
-        let sortDescriptor = NSSortDescriptor(key: "pubDate", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: kPubDate, ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
@@ -68,6 +68,5 @@ class SNLocalDatabaseManager {
             print("*** Error: \(error).")
             return nil
         }
-        
     }
 }

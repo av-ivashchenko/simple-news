@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89209F1E1CCDFA7500AAACB1 /* SNConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89209F1D1CCDFA7500AAACB1 /* SNConstants.swift */; };
 		893EDFC81CCA39A2002D25A5 /* SNXMLParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFC71CCA39A2002D25A5 /* SNXMLParser.swift */; };
 		893EDFCB1CCA41D2002D25A5 /* SNFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */; };
 		893EDFCF1CCA4945002D25A5 /* SNLocalDatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 893EDFCE1CCA4945002D25A5 /* SNLocalDatabaseManager.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89209F1D1CCDFA7500AAACB1 /* SNConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNConstants.swift; path = Model/SNConstants.swift; sourceTree = "<group>"; };
 		893EDFC71CCA39A2002D25A5 /* SNXMLParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNXMLParser.swift; path = Model/SNXMLParser.swift; sourceTree = "<group>"; };
 		893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNFunctions.swift; path = Model/SNFunctions.swift; sourceTree = "<group>"; };
 		893EDFCE1CCA4945002D25A5 /* SNLocalDatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SNLocalDatabaseManager.swift; path = Model/SNLocalDatabaseManager.swift; sourceTree = "<group>"; };
@@ -55,13 +57,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		89159FEB1CCA5986001B3D3C /* NIAttributedLabel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = NIAttributedLabel;
-			sourceTree = "<group>";
-		};
 		893EDFC61CCA3982002D25A5 /* Data handling */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +73,7 @@
 				893EDFCA1CCA41D2002D25A5 /* SNFunctions.swift */,
 				893EDFD01CCA4CFF002D25A5 /* NSDate+DateFromString.swift */,
 				89C194161CCAD8E0002E99C4 /* SNReachability.swift */,
+				89209F1D1CCDFA7500AAACB1 /* SNConstants.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -132,7 +128,6 @@
 		89FE1B4E1CCA12FD00155354 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89159FEB1CCA5986001B3D3C /* NIAttributedLabel */,
 				89DE524F1CCA1CE6008634D8 /* SNNewsItemCell.swift */,
 				89FE1B3B1CCA03EC00155354 /* Main.storyboard */,
 			);
@@ -245,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89209F1E1CCDFA7500AAACB1 /* SNConstants.swift in Sources */,
 				89DE52541CCA2072008634D8 /* SNNewsItem.swift in Sources */,
 				89DE52531CCA2072008634D8 /* SNNewsItem+CoreDataProperties.swift in Sources */,
 				893EDFC81CCA39A2002D25A5 /* SNXMLParser.swift in Sources */,

@@ -47,7 +47,7 @@ class SNXMLParser: NSObject, NSXMLParserDelegate {
             currentElement = elementName
         }
         
-        if elementName == "item" {
+        if elementName == kItem {
             itemFound = true
             currentDataDictionary = [ String: String ]()
         }
@@ -56,7 +56,7 @@ class SNXMLParser: NSObject, NSXMLParserDelegate {
     func parser(parser: NSXMLParser, foundCharacters string: String) {
         if itemFound && string != "\n" {
             switch currentElement {
-            case "title", "link", "pubDate", "description":
+            case kTitle, kLink, kPubDate, kDescription:
                 foundCharacters += string
             default:
                 break
@@ -70,7 +70,7 @@ class SNXMLParser: NSObject, NSXMLParserDelegate {
                               qualifiedName qName: String?) {
         if itemFound {
             switch currentElement {
-            case "title", "link", "pubDate", "description":
+            case kTitle, kLink, kPubDate, kDescription:
                 currentDataDictionary[currentElement] = foundCharacters
                 foundCharacters = ""
                 
@@ -78,7 +78,7 @@ class SNXMLParser: NSObject, NSXMLParserDelegate {
                 break
                 
             }
-            if elementName == "item" {
+            if elementName == kItem {
                 parsedData.append(currentDataDictionary)
                 itemFound = false
             }

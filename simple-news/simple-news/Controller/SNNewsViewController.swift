@@ -19,16 +19,16 @@ class SNNewsViewController: UITableViewController {
     private lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest()
         
-        let entity = NSEntityDescription.entityForName("SNNewsItem", inManagedObjectContext: self.managedObjectContext)
+        let entity = NSEntityDescription.entityForName(kNewsItemEntity, inManagedObjectContext: self.managedObjectContext)
         fetchRequest.entity = entity
-        let sortDescriptor = NSSortDescriptor(key: "pubDate", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: kPubDate, ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         fetchRequest.fetchBatchSize = 20
         
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                                   managedObjectContext: self.managedObjectContext,
-                                                                  sectionNameKeyPath: "pubDate",
-                                                                  cacheName: "SNNewsItems")
+                                                                  sectionNameKeyPath: kPubDate,
+                                                                  cacheName: kNewsItemEntity)
         fetchedResultsController.delegate = self
         
         return fetchedResultsController
@@ -50,7 +50,7 @@ class SNNewsViewController: UITableViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowItemDetail" {
+        if segue.identifier == kShowItemDetail {
             let itemDetailController = segue.destinationViewController as! SNNewsDetailViewController
             
             if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
@@ -127,7 +127,7 @@ class SNNewsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("NewsItemCell", forIndexPath: indexPath) as! SNNewsItemCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(kNewsItemCell, forIndexPath: indexPath) as! SNNewsItemCell
         
         let newsItem = fetchedResultsController.objectAtIndexPath(indexPath) as! SNNewsItem
         
@@ -175,7 +175,6 @@ extension SNNewsViewController: SNDataManagerDelegate {
 
 extension SNNewsViewController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        print("*** Controller will change content")
         tableView.beginUpdates()
     }
     
@@ -186,19 +185,15 @@ extension SNNewsViewController: NSFetchedResultsControllerDelegate {
                                                               newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:
-            print("*** Insert object")
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
         case .Delete:
-            print("*** Delete object")
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
         case .Update:
-            print("*** Update object")
             if let cell = tableView.cellForRowAtIndexPath(indexPath!) as? SNNewsItemCell {
                 let newsItem = fetchedResultsController.objectAtIndexPath(indexPath!) as! SNNewsItem
                 cell.configureForNewsItem(newsItem)
             }
         case .Move:
-            print("*** Move object")
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Automatic)
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Automatic)
         }
@@ -207,10 +202,8 @@ extension SNNewsViewController: NSFetchedResultsControllerDelegate {
     func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
         switch type {
         case .Insert:
-            print("*** Insert section")
             tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
         case .Delete:
-            print("*** Delete section")
             tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Automatic)
         case .Update:
             print("*** Update section")
@@ -220,7 +213,6 @@ extension SNNewsViewController: NSFetchedResultsControllerDelegate {
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        print("*** Did change content")
         tableView.endUpdates()
     }
 

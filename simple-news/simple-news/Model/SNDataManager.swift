@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import CoreData
 
+let SNAppleNewsRssURL = "https://developer.apple.com/news/rss/news.rss"
+
 protocol SNDataManagerDelegate: class {
     func dataDidEndDownload()
     func dataDownloadDidFailedWithError(error: String)
@@ -35,7 +37,7 @@ class SNDataManager: NSObject {
     private func performAPIRequest() {
         dataTask?.cancel()
         
-        let url = NSURL(string: "https://developer.apple.com/news/rss/news.rss")!
+        let url = NSURL(string: SNAppleNewsRssURL)!
         parser.delegate = self
         
         if Reachability.isConnectedToNetwork() {
